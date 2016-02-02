@@ -1,0 +1,16 @@
+//Creating an object with property named 'speedometer' and accordant getter and setter methods.
+var car = {
+  _speedometer : 0,
+  get speedometer(){
+    return this._speedometer;
+  },
+  set speedometer(value){
+    this._speedometer = value;
+  }
+};
+ 
+//Car's property 'speedometer' is changed using setter. It is possible to verify it by adding a multiplier (e.g. value * 20). 
+car.speedometer = 100;
+
+//Usage of getter.
+console.log(car.speedometer);
