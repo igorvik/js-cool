@@ -1,52 +1,52 @@
 //Tasks 1, 2. The result is 10 because in the if-statement variable foo equals undefined which returns boolean value false. And not false is true.
 var foo = 1;
 function bar() {
-	if (!foo) {
-		var foo = 10;
-	}
-	alert(foo);
+    if (!foo) {
+        var foo = 10;
+    }
+    alert(foo);
 }
 bar();
 
-//Task 3, 4. We have to do some changes in function named a. Function was called earlyer. 
+//Task 3, 4. We have to do some changes in function named a. Function was called earlyer.
 var a = 1;
 function b() {
-	a = 10;
-	return;
-	c = function a() {}
+    a = 10;
+    return;
+    c = function a() {}
 }
 b();
 console.log(a);
 
 /*Task 5.
-*Unary operators
-*+"a";
-*delete a;
-*typeof g;
+ *Unary operators
+ *+"a";
+ *delete a;
+ *typeof g;
 
-*Binary operators
-*a + b;
-*a - b;
-*a * b;
-*a / b;
+ *Binary operators
+ *a + b;
+ *a - b;
+ *a * b;
+ *a / b;
 
-*Ternary operator
-*true==true ? "good" : "bad";
-*/
+ *Ternary operator
+ *true==true ? "good" : "bad";
+ */
 
 //Task 6.
-var a = "Íåõàé çàâæäè áóä";
-var arr = ["å ñîíöå,", "å íåáî,", "å ìàìà,", "ó ÿ."];
+var a = "ÐÐµÑ…Ð°Ð¹ Ð·Ð°Ð²Ð¶Ð´Ð¸ Ð±ÑƒÐ´";
+var arr = ["Ðµ ÑÐ¾Ð½Ñ†Ðµ,", "Ðµ Ð½ÐµÐ±Ð¾,", "Ðµ Ð¼Ð°Ð¼Ð°,", "Ñƒ Ñ"];
 for(i in arr){
-	console.log(a.concat(arr[i]));
+    console.log(a.concat(arr[i]));
 }
 
 //Task 7.
 var stars = "*****************************";
 var starsQuantyty = [];
 for(var x = 4; x >=0; x--){
-  var quantyty = stars.length - x*x - x;
-  starsQuantyty.splice(starsQuantyty.length/2, 0, quantyty, quantyty);
+    var quantyty = stars.length - x*x - x;
+    starsQuantyty.splice(starsQuantyty.length/2, 0, quantyty, quantyty);
 }
 for(var i in  starsQuantyty) console.log(stars.substr(0, starsQuantyty[i]));
 
@@ -62,12 +62,12 @@ console.log(interval/1000 + " minutes passed.");
 
 var startTime = new Date();
 do {
-  alarmTime = new Date();
-  interval = alarmTime - startTime;
+    alarmTime = new Date();
+    interval = alarmTime - startTime;
 } while(interval < 10000)
 console.log(interval/1000 + " minutes passed.");
 
-//Task 9. 
+//Task 9.
 var num = 95;
 var str1 = "good luck";
 var str2 = "5";
@@ -75,11 +75,11 @@ var str2 = "5";
 var obj = {style:"nice", price:"twice"};
 var arr = ['like', 'a', 5, function f(){alert('this way')}, {a : 1, b : 2}];
 var func = function(x,y){
-  alert('picture'); 
+    alert('picture');
 }
 
 function result(arg){
-  console.log(arg + " is " + typeof arg);  
+    console.log(arg + " is " + typeof arg);
 }
 
 result(num);
