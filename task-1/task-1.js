@@ -58,14 +58,14 @@ while(interval < 10000) {
     alarmTime = new Date();
     interval = alarmTime - startTime;
 }
-console.log(interval/1000 + " minutes passed.");
+console.log(interval/1000 + " seconds passed.");
 
 var startTime = new Date();
 do {
     alarmTime = new Date();
     interval = alarmTime - startTime;
 } while(interval < 10000)
-console.log(interval/1000 + " minutes passed.");
+console.log(interval/1000 + " seconds passed.");
 
 //Task 9.
 var num = 95;
