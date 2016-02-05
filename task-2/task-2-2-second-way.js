@@ -1,51 +1,58 @@
-﻿//Creating an object with property.
-var car = {
-    speed : 0
+﻿//Creating an object through literal.
+var car = {};
+
+/*
+ *Defining object properties.
+ *Field speed isn't writable directly.
+ *Instead you can use setter method 'setSpeed'.  
+ */
+Object.defineProperties(car, {
+    "speed": {
+        value: 0,
+        configurable: true
+    },
+    "setSpeed": {
+        value: function (val) {
+            setField(this, "speed", val);
+            return this;
+        }
+    },
+    "clearSpeed": {
+        value: function () {
+            setField(this, "speed", 0);
+            return this;
+        }
+    },
+    "getSpeed": {
+        value: function () {
+            return this.speed;
+        }
+    }
+});
+
+//Method to change field's writability.
+function setFieldsWritability(obj, field, isWritable) {
+    Object.defineProperty(obj, field, {
+        writable: isWritable
+    });
+};
+
+//Method to set field's value.
+function setField(obj, field, value) {
+    setFieldsWritability(obj, field, true);
+    obj[field] = value;
+    setFieldsWritability(obj, field, false);
 }
 
-//Block of code with object's methods.
-Object.defineProperties(car, {
-  //Returns actual speed.
-  'getSpeedometer' : {
-    get: function() {
-      return this.speed;
-    }
-  },
-  //Method to set the speed.
-  'setSpeedometer' : {
-    set: function(val) {
-      return this.speed = val;
-    }
-  },
-  //Method makes speed equal 0.
-  clearSpeedometer : {
-    value : function() {
-      this.speed = 0;
-    }
-  }
-});
+//Examples of usage.
 
-//Block of code helps to provide method chaining. It works using previous block of code.
-Object.defineProperties(car, {
+console.log('Let\'s try to change speed of the car directly by writing: \'car.speed = 888;\'.');
+car.speed = 888;
+console.log('Speed of the car hasn\'t been changed. It is equal ' + car.speed + '.');
 
-    "setSpeed" : {
-        value : function (speed){
-            car.setSpeedometer = speed;
-            return this;
-        }
-    },
-    "getSpeed" : {
-        value : function () {
-            return car.getSpeedometer;
-        }
-    },
-    "clearSpeed" : {
-        value : function(){
-            car.clearSpeedometer();
-            return this;
-        }
-    }
-});
+console.log('Now let\'s try to use a special method: \'car.setSpeed(999)\'.');
+car.setSpeed(999);
+console.log('Now speed is equal ' + car.speed + '.');
 
-//Example of usage.
-console.log(car.setSpeed(200).setSpeed(300).clearSpeed().getSpeed());
+console.log('And the last example is method chaining: \'car.setSpeed(200).setSpeed(300).clearSpeed().getSpeed()\'.');
+console.log('The result is: ' + car.setSpeed(200).setSpeed(300).clearSpeed().getSpeed());
